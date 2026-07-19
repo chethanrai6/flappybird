@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flappy Wings — Fly. Focus. Score.</title>
+  <meta name="description" content="Help the bird fly high and dodge pipes in Flappy Wings. Play the sleek, modern web game now!">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="light-theme">
+  <div class="app-layout">
+    <!-- Left Sidebar -->
+    <aside class="sidebar">
+      <div class="logo-container">
+        <div class="logo-icon-bg">
+          <svg class="logo-bird-icon" viewBox="0 0 40 40" fill="none">
+            <!-- SVG Bird Icon matching logo in mockup -->
+            <path d="M12 24C12 24 16 28 22 28C28 28 32 22 34 16C36 10 32 8 28 10C24 12 20 12 16 14C12 16 8 20 12 24Z" fill="#30A76A"/>
+            <path d="M16 14C16 14 22 12 28 14C32 15 30 20 26 21C22 22 18 20 16 14Z" fill="#2BB696"/>
+            <circle cx="28" cy="13" r="2" fill="#FFFFFF"/>
+            <path d="M32 15L37 17L33 19Z" fill="#F4A261"/>
+          </svg>
+        </div>
+        <div class="logo-text">
+          <h1 class="logo-title">FLAPPY WINGS</h1>
+          <p class="logo-tagline">Fly. Focus. Score.</p>
+        </div>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-item active" id="navHome" data-tab="home" title="Home">
+          <span class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Home</span>
+        </button>
+
+        <button class="nav-item" id="navScores" data-tab="scores" title="Scores">
+          <span class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/>
+              <path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/>
+              <path d="M4 22h16"/>
+              <path d="M10 14.66V17c0 .55-.47.98-.97 1.21C7.85 18.75 7 20.24 7 22"/>
+              <path d="M14 14.66V17c0 .55.47.98.97 1.21C16.15 18.75 17 20.24 17 22"/>
+              <path d="M18 2H6v7a6 6 0 0 0 12 0V2Z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Scores</span>
+        </button>
+
+        <button class="nav-item" id="navHowToPlay" data-tab="howToPlay" title="How to Play">
+          <span class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/>
+              <line x1="12" y1="17" x2="12.01" y2="17"/>
+            </svg>
+          </span>
+          <span class="nav-label">How to Play</span>
+        </button>
+
+        <button class="nav-item" id="navSettings" data-tab="settings" title="Settings">
+          <span class="nav-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="3"/>
+              <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+          </span>
+          <span class="nav-label">Settings</span>
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <button class="theme-toggle-btn" id="themeToggle" title="Toggle Light / Dark Mode">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+          </svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+          </svg>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Left Sub-Panel (Hero Section) -->
+      <section class="hero-panel">
+        <div class="hero-badge-container">
+          <div class="hero-badge-line"></div>
+          <span class="hero-badge-text">THE ENDLESS CHALLENGE</span>
+        </div>
+
+        <h2 class="hero-title">
+          FLY HIGH.<br>
+          BE LEGENDARY<span class="accent-dot">.</span>
+        </h2>
+
+        <p class="hero-description">
+          Tap or press SPACE to help the bird fly and dodge through the pipes.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" id="btnStartGame">
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="5 3 19 12 5 21 5 3"/>
+            </svg>
+            START GAME
+          </button>
+
+          <button class="btn btn-secondary" id="btnViewScores">
+            <svg class="btn-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <line x1="18" y1="20" x2="18" y2="10"/>
+              <line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+            VIEW SCORES
+          </button>
+        </div>
+
+        <!-- Quick Stats Card -->
+        <div class="stats-summary-card">
+          <div class="stat-box">
+            <div class="stat-icon-bg green">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">BEST SCORE</span>
+              <span class="stat-value green-text" id="summaryBestScore">0</span>
+            </div>
+          </div>
+
+          <div class="stat-divider"></div>
+
+          <div class="stat-box">
+            <div class="stat-icon-bg purple">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21 6H3c-1.1 0-2 .9-2 2v8c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V8c0-1.1-.9-2-2-2zm-10 7H9v2H7v-2H5v-2h2V9h2v2h2v2zm4.5 1c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm3-3c-.83 0-1.5-.67-1.5-1.5S17.67 8 18.5 8s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+              </svg>
+            </div>
+            <div class="stat-info">
+              <span class="stat-label">GAMES PLAYED</span>
+              <span class="stat-value dark-text" id="summaryGamesPlayed">0</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Right Game Stage -->
+      <section class="game-stage">
+        <div class="game-container" id="gameContainer">
+          <canvas id="gameCanvas" width="680" height="580"></canvas>
+
+          <!-- In-Game HUD: Score Card (Top-Left) -->
+          <div class="hud-score-card" id="hudScoreCard">
+            <div class="hud-score-header">SCORE</div>
+            <div class="hud-score-value" id="hudScore">0</div>
+            <div class="hud-best-badge">BEST <span id="hudBestScore">0</span></div>
+          </div>
+
+          <!-- In-Game HUD: Pause Button (Top-Right) -->
+          <button class="hud-pause-btn" id="hudPauseBtn" title="Pause Game">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <rect x="6" y="4" width="4" height="16" rx="1"/>
+              <rect x="14" y="4" width="4" height="16" rx="1"/>
+            </svg>
+          </button>
+
+          <!-- Ready Screen Overlay -->
+          <div class="game-overlay-screen" id="readyOverlay">
+            <div class="ready-content">
+              <div class="tap-icon-wrapper">
+                <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M12 2v6M12 18v4M4.93 4.93l4.24 4.24M14.83 14.83l4.24 4.24M2 12h6M18 12h4M4.93 19.07l4.24-4.24M14.83 9.17l4.24-4.24"/>
+                </svg>
+              </div>
+              <h3>READY TO FLY</h3>
+              <p>Press <kbd>SPACE</kbd> or <kbd>CLICK</kbd> to flap</p>
+              <button class="btn btn-primary" id="btnOverlayStart">TAP TO START</button>
+            </div>
+          </div>
+
+          <!-- Pause Screen Overlay -->
+          <div class="game-overlay-screen hidden" id="pauseOverlay">
+            <div class="overlay-modal-card">
+              <h2>GAME PAUSED</h2>
+              <p>Take a breath and continue your journey!</p>
+              <div class="overlay-button-stack">
+                <button class="btn btn-primary" id="btnResume">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  RESUME GAME
+                </button>
+                <button class="btn btn-secondary" id="btnRestart">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                  RESTART
+                </button>
+                <button class="btn btn-white" id="btnPauseHome">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                  BACK TO HOME
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Game Over Screen Overlay (Matches Screenshot 2 Exactly) -->
+          <div class="game-overlay-screen hidden" id="gameOverOverlay">
+            <div class="gameover-card">
+              <h2 class="gameover-title">GAME OVER</h2>
+              <div class="gameover-subtitle">
+                <span class="dot-sep">• • •</span> You crashed! <span class="dot-sep">• • •</span>
+              </div>
+
+              <div class="gameover-score-card">
+                <div class="score-col">
+                  <span class="score-label">SCORE</span>
+                  <span class="score-num" id="finalScore">0</span>
+                </div>
+                <div class="score-col-divider"></div>
+                <div class="score-col">
+                  <span class="score-label">BEST SCORE</span>
+                  <span class="score-num green-text" id="finalBestScore">0</span>
+                </div>
+              </div>
+
+              <div class="gameover-actions">
+                <button class="btn btn-primary btn-full" id="btnPlayAgain">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21.5 2v6h-6"/>
+                    <path d="M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/>
+                  </svg>
+                  PLAY AGAIN
+                </button>
+
+                <button class="btn btn-white btn-full" id="btnBackHome">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                  </svg>
+                  BACK TO HOME
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <!-- Scores Leaderboard Modal -->
+  <div class="modal-backdrop hidden" id="scoresModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>🏆 Top Scores Leaderboard</h3>
+        <button class="modal-close-btn" id="closeScoresModal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <ul class="scores-list" id="scoresList">
+          <!-- Populated dynamically -->
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- How to Play Modal -->
+  <div class="modal-backdrop hidden" id="howToPlayModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>❓ How to Play</h3>
+        <button class="modal-close-btn" id="closeHowToPlayModal">&times;</button>
+      </div>
+      <div class="modal-body how-to-play-body">
+        <div class="guide-step">
+          <div class="guide-num">1</div>
+          <div>
+            <h4>Flap Your Wings</h4>
+            <p>Press <strong>SPACEBAR</strong> or <strong>LEFT CLICK</strong> on screen to make the bird jump upwards.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="guide-num">2</div>
+          <div>
+            <h4>Dodge the Pipes</h4>
+            <p>Navigate through gaps between top and bottom green pipes without touching them or hitting the ground.</p>
+          </div>
+        </div>
+        <div class="guide-step">
+          <div class="guide-num">3</div>
+          <div>
+            <h4>Score & Conquer</h4>
+            <p>Earn 1 point for every pipe passed. Try to beat your personal best score!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div class="modal-backdrop hidden" id="settingsModal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>⚙️ Settings</h3>
+        <button class="modal-close-btn" id="closeSettingsModal">&times;</button>
+      </div>
+      <div class="modal-body settings-body">
+        <div class="setting-item">
+          <div>
+            <label class="setting-label">Sound Effects</label>
+            <p class="setting-desc">Flap, score, and crash audio chimes</p>
+          </div>
+          <input type="checkbox" id="settingSoundFx" checked class="toggle-checkbox">
+        </div>
+        <div class="setting-item">
+          <div>
+            <label class="setting-label">Difficulty</label>
+            <p class="setting-desc">Adjust pipe gaps and speed</p>
+          </div>
+          <select id="settingDifficulty" class="custom-select">
+            <option value="easy">Easy (Wide Gaps)</option>
+            <option value="normal" selected>Normal</option>
+            <option value="hard">Hard (Fast & Narrow)</option>
+          </select>
+        </div>
+        <div class="setting-item">
+          <div>
+            <label class="setting-label">Reset Data</label>
+            <p class="setting-desc">Clear best score and game stats</p>
+          </div>
+          <button class="btn btn-danger-sm" id="btnResetStats">Reset Stats</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
