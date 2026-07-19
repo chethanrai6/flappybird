@@ -74,8 +74,6 @@ export class UIController {
       audio.playClick();
       this.engine.start();
       this.showOverlay('ready');
-      // Give initial gentle flap so bird is floating high
-      this.engine.triggerJump();
     });
 
     document.getElementById('btnViewScores').addEventListener('click', () => {

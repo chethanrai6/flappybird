@@ -36,6 +36,10 @@ export class Engine {
   }
 
   start() {
+    if (this.animFrameId) {
+      cancelAnimationFrame(this.animFrameId);
+      this.animFrameId = null;
+    }
     this.state = GAME_STATE.READY;
     this.score = 0;
     this.bird.reset();
