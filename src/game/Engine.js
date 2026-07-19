@@ -116,8 +116,15 @@ export class Engine {
   }
 
   loop(timestamp) {
-    this.update();
-    this.draw();
+    if (!this.lastTime) this.lastTime = timestamp;
+    const elapsed = timestamp - this.lastTime;
+    const fpsInterval = 1000 / 60; // 60 FPS target
+
+    if (elapsed >= fpsInterval) {
+      this.lastTime = timestamp - (elapsed % fpsInterval);
+      this.update();
+      this.draw();
+    }
     this.animFrameId = requestAnimationFrame((t) => this.loop(t));
   }
 

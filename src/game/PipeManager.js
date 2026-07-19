@@ -8,26 +8,26 @@ export class PipeManager {
     this.pipeWidth = 68;
     this.pipeCapHeight = 26;
     this.pipeCapOverlap = 6;
-    this.gapHeight = 145; // Default vertical gap between pipes
-    this.speed = 2.4;
+    this.gapHeight = 160; // Comfortable vertical gap
+    this.speed = 1.7; // Relaxed scrolling speed
     this.spawnTimer = 0;
-    this.spawnInterval = 115; // Frames between spawns
+    this.spawnInterval = 135; // Frames between spawns
     this.groundHeight = 64;
   }
 
   setDifficulty(level) {
     if (level === 'easy') {
-      this.gapHeight = 165;
-      this.speed = 2.0;
-      this.spawnInterval = 130;
+      this.gapHeight = 180;
+      this.speed = 1.4;
+      this.spawnInterval = 150;
     } else if (level === 'hard') {
-      this.gapHeight = 125;
-      this.speed = 2.9;
-      this.spawnInterval = 100;
-    } else { // normal
-      this.gapHeight = 145;
+      this.gapHeight = 135;
       this.speed = 2.4;
-      this.spawnInterval = 115;
+      this.spawnInterval = 105;
+    } else { // normal
+      this.gapHeight = 160;
+      this.speed = 1.7;
+      this.spawnInterval = 135;
     }
   }
 

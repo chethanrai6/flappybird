@@ -4,7 +4,7 @@ export class Background {
     this.height = canvasHeight;
     this.groundHeight = 64;
     this.groundOffset = 0;
-    this.scrollSpeed = 2;
+    this.scrollSpeed = 1.7;
 
     // Clouds
     this.clouds = [
