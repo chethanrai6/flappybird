@@ -73,6 +73,8 @@ export class UIController {
     document.getElementById('btnStartGame').addEventListener('click', () => {
       audio.playClick();
       this.engine.start();
+      this.showOverlay('ready');
+      // Give initial gentle flap so bird is floating high
       this.engine.triggerJump();
     });
 
@@ -88,7 +90,8 @@ export class UIController {
     });
 
     // HUD Pause Button
-    this.hudPauseBtn.addEventListener('click', () => {
+    this.hudPauseBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       audio.playClick();
       if (this.engine.state === GAME_STATE.PLAYING) {
         this.engine.pause();
@@ -126,22 +129,29 @@ export class UIController {
       this.showOverlay('ready');
     });
 
-    // Canvas Tap / Click to flap
-    this.canvas.addEventListener('mousedown', (e) => {
+    // Container / Stage Tap or Click to flap
+    const gameContainer = document.getElementById('gameContainer');
+    gameContainer.addEventListener('mousedown', (e) => {
+      // Don't flap if clicking pause button or modal buttons
+      if (e.target.closest('.hud-pause-btn') || e.target.closest('.btn')) return;
       e.preventDefault();
       this.engine.triggerJump();
     });
 
-    this.canvas.addEventListener('touchstart', (e) => {
+    gameContainer.addEventListener('touchstart', (e) => {
+      if (e.target.closest('.hud-pause-btn') || e.target.closest('.btn')) return;
       e.preventDefault();
       this.engine.triggerJump();
     }, { passive: false });
 
-    // Keyboard Controls
+    // Global Keyboard Controls (Space, ArrowUp, W)
     window.addEventListener('keydown', (e) => {
-      if (e.code === 'Space' || e.code === 'ArrowUp') {
-        e.preventDefault();
-        this.engine.triggerJump();
+      if (e.code === 'Space' || e.code === 'ArrowUp' || e.code === 'KeyW') {
+        // Prevent page scroll when pressing Space/ArrowUp
+        if (document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'SELECT') {
+          e.preventDefault();
+          this.engine.triggerJump();
+        }
       } else if (e.code === 'KeyP') {
         if (this.engine.state === GAME_STATE.PLAYING) this.engine.pause();
         else if (this.engine.state === GAME_STATE.PAUSED) this.engine.resume();

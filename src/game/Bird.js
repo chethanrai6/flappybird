@@ -10,8 +10,8 @@ export class Bird {
     
     // Physics parameters
     this.velocity = 0;
-    this.gravity = 0.45;
-    this.jumpImpulse = -7.6;
+    this.gravity = 0.42;
+    this.jumpImpulse = -8.2;
     this.rotation = 0;
     
     // Wing animation
