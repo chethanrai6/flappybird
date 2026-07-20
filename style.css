@@ -864,3 +864,254 @@ kbd {
   70% { transform: scale(1.05); box-shadow: 0 0 0 15px rgba(255, 255, 255, 0); }
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(255, 255, 255, 0); }
 }
+
+/* ==========================================================================
+   Mobile & Responsive Layout Media Queries
+   ========================================================================== */
+@media (max-width: 900px) {
+  body {
+    align-items: flex-start;
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .app-layout {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+    max-height: none;
+    width: 100vw;
+    overflow-y: auto;
+  }
+
+  /* Top Mobile Bar Header */
+  .sidebar {
+    width: 100%;
+    height: 60px;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 16px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-color);
+    flex-shrink: 0;
+  }
+
+  .logo-container {
+    margin-bottom: 0;
+    width: auto;
+    gap: 10px;
+  }
+
+  .logo-icon-bg {
+    width: 36px;
+    height: 36px;
+  }
+
+  .logo-bird-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .logo-text {
+    display: block;
+  }
+
+  .logo-title {
+    font-size: 0.9rem;
+  }
+
+  .logo-tagline {
+    font-size: 0.65rem;
+  }
+
+  .nav-menu {
+    flex-direction: row;
+    gap: 6px;
+    width: auto;
+    flex: initial;
+  }
+
+  .nav-item {
+    padding: 8px 10px;
+    width: auto;
+    border-radius: 10px;
+  }
+
+  .nav-label {
+    display: none;
+  }
+
+  .sidebar-footer {
+    width: auto;
+    margin-top: 0;
+  }
+
+  .theme-toggle-btn {
+    width: 36px;
+    height: 36px;
+  }
+
+  /* Main Mobile Stack: Game Stage on top, Hero info below */
+  .main-content {
+    flex-direction: column-reverse;
+    padding: 16px 12px 32px 12px;
+    gap: 20px;
+    width: 100%;
+    overflow: visible;
+    align-items: center;
+  }
+
+  .game-stage {
+    width: 100%;
+    max-width: 100%;
+    flex: none;
+    display: flex;
+    justify-content: center;
+  }
+
+  .game-container {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 680 / 580;
+    border-radius: var(--radius-md);
+    margin: 0 auto;
+  }
+
+  .hero-panel {
+    width: 100%;
+    max-width: 520px;
+    flex: none;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .hero-badge-container {
+    justify-content: center;
+  }
+
+  .hero-title {
+    font-size: 1.85rem;
+    margin-bottom: 10px;
+  }
+
+  .hero-description {
+    max-width: 100%;
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .hero-actions {
+    max-width: 100%;
+    width: 100%;
+    flex-direction: row;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    flex: 1;
+    padding: 12px 16px;
+    font-size: 0.85rem;
+  }
+
+  .stats-summary-card {
+    max-width: 100%;
+    width: 100%;
+    padding: 14px 18px;
+  }
+
+  .stat-value {
+    font-size: 1.25rem;
+  }
+
+  /* HUD Mobile Adjustments */
+  .hud-score-card {
+    padding: 6px 14px;
+    top: 10px;
+    left: 10px;
+    min-width: 84px;
+  }
+
+  .hud-score-value {
+    font-size: 1.4rem;
+  }
+
+  .hud-score-header {
+    font-size: 0.55rem;
+  }
+
+  .hud-best-badge {
+    font-size: 0.65rem;
+  }
+
+  .hud-pause-btn {
+    width: 36px;
+    height: 36px;
+    top: 10px;
+    right: 10px;
+    border-radius: 10px;
+  }
+
+  .overlay-modal-card, .gameover-card {
+    padding: 20px 16px;
+    max-width: 300px;
+  }
+
+  .gameover-title {
+    font-size: 1.6rem;
+  }
+
+  .gameover-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .gameover-score-card {
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+
+  .score-num {
+    font-size: 1.5rem;
+  }
+
+  .ready-content h3 {
+    font-size: 1.3rem;
+  }
+
+  .ready-content p {
+    font-size: 0.85rem;
+  }
+
+  .tap-icon-wrapper {
+    width: 54px;
+    height: 54px;
+  }
+
+  .modal-content {
+    max-width: 92vw;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    display: none;
+  }
+
+  .hero-title {
+    font-size: 1.5rem;
+  }
+
+  .hero-actions {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
